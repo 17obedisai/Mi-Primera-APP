@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import Saludo from './components/saludo'; // Importa el componente 
-import viteLogo from '/vite.svg'
+import Saludo from './components/saludo'; // Importa el componente
+// Importa tu nuevo logo usando una variable
+import senaLogo from './assets/Sena_Colombia_logo.svg' // <-- ¡Bien!
 import './App.css'
 
 
@@ -11,29 +11,31 @@ function App() {
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="R
-          
-      </div>
-      <h1>Vite + React</h1>
+        {/* Aquí estaba el error: faltaba cerrar el <a> */}
+        <a href='https://www.sena.edu.co/' target="_blank" rel="noopener noreferrer"> {/* Puse la URL oficial del SENA, cámbiala si necesitas otra */}
+          {/* Usa la variable importada 'senaLogo' en el src */}
+          <img src={senaLogo} className="logo" alt="Logotipo del Sena" /> {/* <-- Corregido aquí */}
+        </a> {/* <-- ¡Etiqueta <a> de cierre agregada aquí! */}
+      </div> {/* <-- Este </div> ahora cierra el div correctamente */}
+
+      <h1>Mi Primera App</h1>
       <div className="card">
-        
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
+
+        <h2>Contador: {count}</h2> {/* Agregué la visualización del contador aquí como hicimos antes */}
+
+        {/* Botones de incrementar y decrementar */}
         <button onClick={() => setCount(prevCount => prevCount + 1)}>
-        Incrementar
-      </button>
-      <button onClick={() => setCount(prevCount => prevCount - 1)}>
-        Decrementar
-      </button>
-      <div>
-    {/* Usa el componente como una etiqueta HTML */}
-    <Saludo nombre="Obed Isai" />
-  </div>
+          Incrementar
+        </button>
+        <button onClick={() => setCount(prevCount => prevCount - 1)}>
+          Decrementar
+        </button>
+
+        <div>
+          {/* Usa el componente como una etiqueta HTML */}
+          <Saludo nombre="Obed Isai" />
+        </div>
+
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
